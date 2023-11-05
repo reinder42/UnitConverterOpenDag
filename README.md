@@ -4,6 +4,11 @@
 
 Om je kennis te laten maken met onze afstudeerrichting Software Development (SD) hebben we deze workshop voor je samengesteld. Je gaat aan de hand van een klein, compact project aan de slag met Java programmeren. Aan de hand van korte mini-opdrachten bouw je een Unit Converter _from scratch_!
 
+Je kunt deze workshop vinden via:
+
+- [https://canvas.hu.nl/courses/1355](https://canvas.hu.nl/courses/1355) (Canvas)
+- [https://github.com/reinder42/UnitConverterOpenDag](https://github.com/reinder42/UnitConverterOpenDag) (GitHub)
+
 ## Wat is een Unit Converter?
 
 Een _unit converter_ is een simpele applicatie (of programma) om metingen en eenheden van het ene naar het andere om te rekenen. Een voorbeeld: 1 kilobyte (kB) is 1024 bytes (B). Je kan dus tussen die twee eenheden omrekenen door te delen of vermenigvuldigen met 1024.
@@ -18,7 +23,7 @@ In deze workshop gaan we een 3-tal eenheden converteren:
 
 1. Van _Celsius_ naar _Fahrenheit_
 2. Van _nummer_ 1-7 naar _weekdag_
-3. Van kilobytes naar bytes
+3. Van _kilobytes_ naar _bytes_
 
 ## Wat is Java?
 
@@ -48,12 +53,16 @@ Eclipse staat al geinstalleerd op de computer waar je nu op werkt. In deze works
 
 Op de computer waar je nu op aan het werk bent, staat links als het goed is een icoon van _Eclipse_ (paarse planeet/maan). Klik op dat icoon om Eclipse te starten.
 
+![](1_java2023_image.jpg)
+
 We gaan nu een nieuw project maken. Doe het volgende:
 
 1. Kies _File -> New -> Java Project_
 2. Kies een projectnaam, bijv. _UnitConverter_
 3. Vink aan _Use default JRE (currently 'jdk-11.x.y')_
 4. Klik op _Finish_
+
+![](2_java2023_image.jpg)
 
 ## Java bestand aanmaken
 
@@ -64,6 +73,10 @@ We gaan nu een Java code bestand aanmaken. Doe het volgende:
 3. Vul bij _Package_ `opendag.unitconverter` in
 3. Vul bij _Name_ `Main` in
 4. Klik op _Finish_
+
+![](3_java2023_image.jpg)
+
+![](4_java2023_image.jpg)
 
 Als het goed is, dan opent er nu een nieuw bestand dat `Main.java` heet. Hierin gaan we onze applicatie programmeren.
 
@@ -93,7 +106,11 @@ Wat gebeurt er precies in bovenstaande Java code?
 
 Om te testen of de bovenstaande stappen goed zijn gegaan, kunnen we nu ons Java programma afspelen of _runnen_. Dat gaat zo: Bovenaan Eclipse staan een aantal iconen. Klik op het icoon dat lijkt op een groene Play-button.
 
+![](5_java2023_image.jpg)
+
 Als het goed is zie je nu onderaan Eclipse, in de _Console_, de legendarische woorden _Hello world!_ verschijnen. Dat betekent dat onze code werkt!
+
+![](6_java2023_image.jpg)
 
 # Opdracht 2: Celsius naar Fahrenheit
 
@@ -152,10 +169,20 @@ Wat gebeurt er in de code?
 Laten we eens kijken of deze code werkt! Voeg de volgende regel als laatste toe in de functie `main()`:
 
 ```java
-System.out.println(nummer)
+System.out.println(nummer);
 ```
 
-Klik vervolgens weer op de Play-knop in Eclipse om je code te runnen. Je kunt nu onderaan het scherm klikken, en daarna bijv. het getal 3 invoeren. Wordt vervolgens jouw invoer netjes geprint? Super!
+En voeg de volgende code helemaal boveaan het bestand toe, **onder** de `package opendag.unitconverter` regel:
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+```
+
+Klik vervolgens weer op de Play-knop in Eclipse om je code te runnen. Je kunt nu onderaan het scherm klikken, in de _Console_, en daarna bijv. het getal 3 invoeren. Wordt vervolgens jouw invoer netjes geprint? Super!
+
+![](7_java2023_image.jpg)
 
 ## Conversie code schrijven
 
@@ -206,7 +233,7 @@ System.out.println(String.format("%.2f °C = %.2f °F", celsius, fahrenheit));
 Wat gebeurt er in de code?
 
 - Op de eerste regel printen we wat tekst. Op de 2 volgende regels gebruiken we weer de `Scanner` om invoer van de gebruiker te vragen. Die invoer zetten we direct om naar het `double` type. De variabele `celsius` bevat nu de invoer van de gebruiker (bijv. `21.0`) als een kommagetal.
-- Vervolgens rekenen we `celsius` om naar `fahrenheit` met een simpele berekening. Je zou zo'n berekening een _algoritme_ kunnen noemen, omdat het tastbare stappen zet van invoer naar uitvoer. De meeste algoritmes zijn natuurlijk ingewikkelder!
+- Vervolgens rekenen we `celsius` om naar `fahrenheit` met een simpele berekening. Je zou zo'n berekening een _algoritme_ kunnen noemen, omdat het concrete stappen zet van invoer naar uitvoer. De meeste algoritmes zijn natuurlijk ingewikkelder!
 - Op de laatste regel laten we het resultaat van de berekening aan de gebruiker zien. Als je goed kijkt, dan zie je `... C = ... F` staan. Op de plek van de puntjes wordt de waarde van `celcius` en `fahrenheit` gezet. Met de code `%.2f` geven we aan dat we een decimaal getal met 2 cijfers achter de komma willen printen. Deze techniek noem je ook wel een _formatted string_.
 
 ## De functie aanroepen
@@ -374,7 +401,7 @@ Je kan nu weer je code uitproberen door op de Play-knop in Eclipse te klikken. A
 
 **Tip:** Wat gebeurt er eigenlijk als je -1, 9 of 314 invoert? Zoveel dagen zitten er niet in de week... Software Development gaat niet alleen maar over programmeren, maar ook over _debugging_ en het vinden van bugs in je code. In bovenstaande code kunnen we dus iets inbouwen waardoor we checken of de invoer van de gebruiker wel tussen 1 en 7 ligt. Dat voorkomt bugs en fouten!
 
-# Opdracht 3: Bytes, Ontwerp en Analyse
+# Opdracht 4: Bytes, Ontwerp en Analyse
 
 **Let op:** Dit gedeelte van de workshop is nog in aanbouw! Struikelen op eigen risico...
 
@@ -389,7 +416,7 @@ Absoluut niet! Software Development bestrijkt een uitvoerig geheel aan disciplin
 
 Om die verscheidenheid van software development te illustreren, gaan we de volgende en laatste conversie van onze Unit Converter op een andere manier aanpakken. In plaats van code regel-voor-regel schrijven, pakken we eerst een stukje software ontwerp en analyse erbij. Je maakt ook kennis met objecten, klassen en interfaces in Java.
 
-**UNDER CONSTRUCTION**
+...
 
 
 
